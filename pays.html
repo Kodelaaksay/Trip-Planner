@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Goa Travel Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #0066cc;
+        }
+        h2 {
+            color: #0099cc;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .form-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #003366;
+        }
+        .total-price {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .payment-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function updatePrice() {
+            const prices = {
+                "destination": {
+                    "baga-beach": 8000,
+                    "calangute-beach": 6400,
+                    "dudhsagar-falls": 12000,
+                    "fort-aguada": 9600,
+                    "anjuna-market": 4800
+                },
+                "activity": {
+                    "water-sports": 16000,
+                    "nightlife": 8000,
+                    "heritage-walks": 4000,
+                    "spice-plantations": 5600,
+                    "yoga-retreats": 12000,
+                    "offroading": 14400,
+                    "scuba-diving": 20000,
+                    "wildlife-safari": 17600,
+                    "trekking": 7200,
+                    "boat-cruises": 10400
+                },
+                "hotel": {
+                    "luxury-hotel": 24000,
+                    "beach-resort": 20000,
+                    "budget-hotel": 8000,
+                    "homestay": 6400,
+                    "hostel": 4000
+                }
+            };
+
+            let total = 0;
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+                const category = checkbox.name;
+                const value = checkbox.value;
+                if (prices[category] && prices[category][value]) {
+                    total += prices[category][value];
+                }
+            });
+
+            const totalPriceElement = document.getElementById('total-price');
+            totalPriceElement.textContent = `Estimated Total Price: ₹${total}`;
+
+            const paymentLink = document.getElementById('payment-link');
+            paymentLink.href = `payment_page.html?total=${total}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Customize Your Goa Travel Plan</h1>
+    <form oninput="updatePrice()">
+        <div class="form-group">
+            <label>Select Your Preferred Destinations:</label>
+            <input type="checkbox" name="destination" value="baga-beach">Baga Beach (₹8000)<br>
+            <input type="checkbox" name="destination" value="calangute-beach">Calangute Beach (₹6400)<br>
+            <input type="checkbox" name="destination" value="dudhsagar-falls">Dudhsagar Falls (₹12000)<br>
+            <input type="checkbox" name="destination" value="fort-aguada">Fort Aguada (₹9600)<br>
+            <input type="checkbox" name="destination" value="anjuna-market">Anjuna Flea Market (₹4800)<br>
+        </div>
+        
+        <div class="form-group">
+            <label>Select Your Preferred Activities:</label>
+            <input type="checkbox" name="activity" value="water-sports">Water Sports (₹16000)<br>
+            <input type="checkbox" name="activity" value="nightlife">Nightlife & Clubs (₹8000)<br>
+            <input type="checkbox" name="activity" value="heritage-walks">Heritage Walks (₹4000)<br>
+            <input type="checkbox" name="activity" value="spice-plantations">Spice Plantations Tour (₹5600)<br>
+            <input type="checkbox" name="activity" value="yoga-retreats">Yoga Retreats (₹12000)<br>
+            <input type="checkbox" name="activity" value="offroading">Off-Roading (₹14400)<br>
+            <input type="checkbox" name="activity" value="scuba-diving">Scuba Diving (₹20000)<br>
+            <input type="checkbox" name="activity" value="wildlife-safari">Wildlife Safari (₹17600)<br>
+            <input type="checkbox" name="activity" value="trekking">Trekking (₹7200)<br>
+            <input type="checkbox" name="activity" value="boat-cruises">Boat Cruises (₹10400)<br>
+        </div>
+        
+        <div class="form-group">
+            <label>Select Your Preferred Accommodation:</label>
+            <input type="checkbox" name="hotel" value="luxury-hotel">Luxury Hotels (₹24000)<br>
+            <input type="checkbox" name="hotel" value="beach-resort">Beach Resorts (₹20000)<br>
+            <input type="checkbox" name="hotel" value="budget-hotel">Budget Hotels (₹8000)<br>
+            <input type="checkbox" name="hotel" value="homestay">Homestays (₹6400)<br>
+            <input type="checkbox" name="hotel" value="hostel">Hostels (₹4000)<br>
+        </div>
+
+        <div class="total-price" id="total-price">
+            Estimated Total Price: ₹0
+        </div>
+
+        <div class="payment-link">
+            <a id="payment-link" href=""C:\Users\Sadhvik\OneDrive\Desktop\triplanner\doctype3.html"" target="_blank">Proceed to Payment</a>
+        </div>
+    </form>
+</body>
+</html>

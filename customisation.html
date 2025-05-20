@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Travel Preferences</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Preferences</h1>
+        <form>
+            <div class="form-group">
+                <label for="destination">Choose Your Destination:</label>
+                <input type="radio" id="paris" name="destination" value="paris">
+                <label for="paris">Paris</label><br>
+                <input type="radio" id="new_york" name="destination" value="new_york">
+                <label for="new_york">New York</label><br>
+                <input type="radio" id="tokyo" name="destination" value="tokyo">
+                <label for="tokyo">Tokyo</label><br>
+                <input type="radio" id="sydney" name="destination" value="sydney">
+                <label for="sydney">Sydney</label>
+            </div>
+
+            <div class="form-group">
+                <label>Travel Preferences:</label>
+                <input type="radio" id="luxury" name="preference" value="luxury">
+                <label for="luxury">Luxury</label><br>
+                <input type="radio" id="adventure" name="preference" value="adventure">
+                <label for="adventure">Adventure</label><br>
+                <input type="radio" id="budget" name="preference" value="budget">
+                <label for="budget">Budget</label><br>
+                <input type="radio" id="cultural" name="preference" value="cultural">
+                <label for="cultural">Cultural</label>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

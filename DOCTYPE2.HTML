@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Araku Travel Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f4f8;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        h2 {
+            color: #388E3C;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .form-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #2E7D32;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customize Your Araku Travel Plan</h1>
+    <form action="generate_araku_links.html" method="GET">
+        <div class="form-group">
+            <label>Select Your Preferred Destinations:</label>
+            <input type="checkbox" name="destination" value="borra-caves">Borra Caves<br>
+            <input type="checkbox" name="destination" value="araku-valley">Araku Valley<br>
+            <input type="checkbox" name="destination" value="katiki-waterfalls">Katiki Waterfalls<br>
+            <input type="checkbox" name="destination" value="tribal-museum">Tribal Museum<br>
+            <input type="checkbox" name="destination" value="coffee-plantations">Coffee Plantations<br>
+        </div>
+        
+        <div class="form-group">
+            <label>Select Your Preferred Activities:</label>
+            <input type="checkbox" name="activity" value="trekking">Trekking<br>
+            <input type="checkbox" name="activity" value="camping">Camping<br>
+            <input type="checkbox" name="activity" value="offroading">Off-Roading<br>
+            <input type="checkbox" name="activity" value="bird-watching">Bird Watching<br>
+            <input type="checkbox" name="activity" value="cultural-tour">Cultural Tour<br>
+        </div>
+        
+        <div class="form-group">
+            <label>Select Your Preferred Accommodation:</label>
+            <input type="checkbox" name="hotel" value="luxury-resort">Luxury Resorts<br>
+            <input type="checkbox" name="hotel" value="eco-friendly-stay">Eco-Friendly Stays<br>
+            <input type="checkbox" name="hotel" value="budget-hotel">Budget Hotels<br>
+            <input type="checkbox" name="hotel" value="homestay">Homestays<br>
+            <input type="checkbox" name="hotel" value="guesthouse">Guesthouses<br>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Generate My Travel Plan">
+        </div>
+    </form>
+</body>
+</html>
+

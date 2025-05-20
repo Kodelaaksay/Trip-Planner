@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .form-group .payment-method {
+            margin-bottom: 10px;
+        }
+        .form-group .payment-method label {
+            margin-right: 10px;
+        }
+        #card-details, #upi-details {
+            display: none;
+        }
+    </style>
+    <script>
+        function showPaymentFields() {
+            var method = document.querySelector('input[name="payment-method"]:checked').value;
+            document.getElementById('card-details').style.display = (method === 'card') ? 'block' : 'none';
+            document.getElementById('upi-details').style.display = (method === 'upi') ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <h1>Complete Your Payment</h1>
+    <form action="payment_success.html" method="POST">
+        <div class="form-group payment-method">
+            <label>Select Payment Method:</label><br>
+            <label><input type="radio" name="payment-method" value="card" onclick="showPaymentFields()" required> Credit/Debit Card</label><br>
+            <label><input type="radio" name="payment-method" value="upi" onclick="showPaymentFields()"> UPI</label>
+        </div>
+
+        <!-- Card Payment Details -->
+        <div id="card-details">
+            <div class="form-group">
+                <label for="name">Name on Card:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="card-number">Card Number:</label>
+                <input type="number" id="card-number" name="card-number">
+            </div>
+            <div class="form-group">
+                <label for="expiry-date">Expiry Date:</label>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="number" id="cvv" name="cvv">
+            </div>
+        </div>
+
+        <!-- UPI Payment Details -->
+        <div id="upi-details">
+            <div class="form-group">
+                <label for="upi-id">UPI ID:</label>
+                <input type="text" id="upi-id" name="upi-id">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" value="Pay Now">
+        </div>
+    </form>
+</body>
+</html>
